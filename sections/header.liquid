@@ -85,37 +85,30 @@
             <ul class="header-bar__module header-bar__module--list">
               {% if customer %}
                 <li>
-                  <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+                  <a href="{{ routes.account_url }}" class="customerlinks" data-hover="My Account">{{ 'layout.customer.account' | t }}</a>
                 </li>
                 <li>
-                  {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                  {{ 'layout.customer.log_out' | t | customer_logout_link | replace: 'href', 'class="customerlinks" data-hover="Log out" href' }}
                 </li>
               {% else %}
                 <li>
-                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  {{ 'layout.customer.log_in' | t | customer_login_link | replace: 'href', 'class="customerlinks" data-hover="Log in" href' }}
                 </li>
-                <li>{{ 'layout.customer.or' | t }}</li>
+                <li class="noselect" style="padding:0px 1px 0px 1px;"></li>
                 <li>
-                  {{ 'layout.customer.create_account' | t | customer_register_link }}
+                  {{ 'layout.customer.create_account' |t  | customer_register_link | replace: 'href', 'class="customerlinks" data-hover="Create account" href' }}
                 </li>
               {% endif %}
             </ul>
           {% endif %}
-
+<div style="float:left !important;">
           <div class="header-bar__module">
-            <span class="header-bar__sep" aria-hidden="true"></span>
-            <a href="{{ routes.cart_url }}" class="cart-page-link">
-              <span class="icon icon-cart header-bar__cart-icon" aria-hidden="true"></span>
-            </a>
-          </div>
-
-          <div class="header-bar__module">
-            <a href="{{ routes.cart_url }}" class="cart-page-link" data-hover="{{ 'layout.cart.title' | t }}">
-              {{ 'layout.cart.title' | t }}{% unless cart.item_count == 0 %}:{% endunless %}
+            <a href="{{ routes.cart_url }}" class="cart-page-link" data-hover="🛒 Cart"><span style="opacity:10%;">🛒
+              {{ 'layout.cart.title' | t }}{% unless cart.item_count == 0 %}:{% endunless %}</span>
               <span class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>
             </a>
           </div>
-
+        </div>
           {% if section.settings.header_search_enable %}
             {% if section.settings.show_announcement %}
               <div class="header-bar__module header-bar__search">

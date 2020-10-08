@@ -899,6 +899,39 @@ html, body { background: $colorBody; }
     }
   }
 
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  .customerlinks {
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    text-shadow: none;
+
+    &:before {
+      color: #A9A9A9 !important;
+      content: attr(data-hover);
+      position: absolute;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    &:hover::before,
+    &:active::before,
+    &:focus::before {
+      -webkit-transform: scale(0.9);
+      -moz-transform: scale(0.9);
+      transform: scale(0.9);
+      opacity: 0;
+    }
+  }
+
   .inline-list {
     margin-bottom: 0;
 
@@ -949,30 +982,85 @@ html, body { background: $colorBody; }
 }
 
 .cart-page-link {
-  display: inline-block;
-  color: $colorPrimary;
-	color: rgba(0,0,0,0.2);
-	font-weight: 700;
-	text-shadow: none;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+
+  text-shadow: none;
 
   &:before {
-	color: rgba(0,0,0,0.2);
-	content: attr(data-hover);
-	position: absolute;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
+    color: #A9A9A9 !important;
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+
   }
-    
-  
+
+
   &:hover::before,
   &:active::before,
   &:focus::before {
-    	-webkit-transform: scale(0.9);
-	-moz-transform: scale(0.9);
-	transform: scale(0.9);
-	opacity: 0;
-    
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0;
+
+
+  }
+}
+
+.cart-page-icon {
+  text-shadow: rgba(0, 0, 0, 0.2);
+
+  font-weight: 700;
+  text-shadow: none;
+
+  &:before {
+    color: transparent;
+
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    text-shadow: 0 0 0 black;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.general-link {
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-shadow: none;
+
+  &:before {
+    color: #000;
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0;
+
   }
 }
 
@@ -1339,7 +1427,7 @@ $badgeSize: 60px;
 	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
 	transition: transform 0.3s, opacity 0.3s;
   }
-  
+
     &:hover::before,
   &:active::before,
   &:focus::before {
@@ -1347,7 +1435,7 @@ $badgeSize: 60px;
 	-moz-transform: scale(0.9);
 	transform: scale(0.9);
 	opacity: 0;
-    
+
   }
 
   .icon {
@@ -1526,7 +1614,7 @@ $badgeSize: 60px;
   .input-group {
     display: block;
   }
-  
+
   .input-group-field {
     margin-bottom: 10px;
   }
