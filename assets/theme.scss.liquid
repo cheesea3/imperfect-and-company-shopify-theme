@@ -950,6 +950,30 @@ html, body { background: $colorBody; }
 
 .cart-page-link {
   display: inline-block;
+  color: $colorPrimary;
+	color: rgba(0,0,0,0.2);
+	font-weight: 700;
+	text-shadow: none;
+
+  &:before {
+	color: rgba(0,0,0,0.2);
+	content: attr(data-hover);
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+  }
+    
+  
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+    
+  }
 }
 
 .header-bar__cart-icon {
@@ -1303,6 +1327,28 @@ $badgeSize: 60px;
 .mobile-nav-trigger,
 .mobile-cart-page-link {
   font-weight: $accentFontWeightBold;
+  	color: rgba(0,0,0,0.2);
+	font-weight: 700;
+	text-shadow: none;
+
+  &:before {
+	color: #000;
+	content: attr(data-hover);
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+  }
+  
+    &:hover::before,
+  &:active::before,
+  &:focus::before {
+    	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+    
+  }
 
   .icon {
     position: relative;
@@ -1480,7 +1526,7 @@ $badgeSize: 60px;
   .input-group {
     display: block;
   }
-
+  
   .input-group-field {
     margin-bottom: 10px;
   }

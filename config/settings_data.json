@@ -5,38 +5,38 @@
     "color_body_bg": "#f5f5f5",
     "color_footer_bg": "#f5f5f5",
     "color_borders": "#faf9f7",
-    "color_primary": "#d77e6a",
+    "color_primary": "#ff3535",
     "color_button_primary_text": "#ffffff",
-    "color_topbar_text": "#d77e6a",
+    "color_topbar_text": "#ff3535",
     "color_header_text": "#1b1e2f",
     "color_body_text": "#1b1e2f",
     "color_footer_text": "#1b1e2f",
     "color_footer_social_link": "#f2f0ee",
-    "type_base_family": "arapey_n4",
-    "type_base_size": "12px",
+    "type_base_family": "cachet_n4",
+    "type_base_size": "16px",
     "type_header_family": "pt_sans_n7",
-    "type_header_size": "36px",
+    "type_header_size": "26px",
     "type_accent_family": "pt_sans_n7",
-    "type_accent_size": "12px",
+    "type_accent_size": "20px",
     "type_accent_transform": true,
     "type_accent_spacing": true,
-    "share_facebook": true,
-    "share_twitter": true,
-    "share_pinterest": true,
-    "social_sharing_style": "normal",
-    "checkout_header_image": "",
-    "checkout_logo_image": "",
-    "checkout_logo_position": "left",
-    "checkout_logo_size": "medium",
-    "checkout_body_background_image": "",
+    "favicon": "shopify:\/\/shop_images\/colored_umbrella.png",
+    "social_instagram_link": "https:\/\/www.instagram.com\/imperfectandcompany\/",
+    "social_snapchat_link": "itsdaiyaan",
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "social_sharing_style": "is-clean",
+    "checkout_logo_image": "shopify:\/\/shop_images\/impefectandcompanyai_337f5597-6100-4624-8924-7528b21e6978.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
     "checkout_body_background_color": "#fff",
     "checkout_input_background_color_mode": "white",
-    "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Arvo",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#0081a3",
-    "checkout_button_color": "#0081a3",
+    "checkout_accent_color": "#ff3535",
+    "checkout_button_color": "#ff3535",
     "checkout_error_color": "#e42c00",
     "collections_center_grid_link": false,
     "sections": {
@@ -46,18 +46,38 @@
           "header_search_enable": false,
           "logo": "shopify:\/\/shop_images\/impefectandcompanyai.png",
           "logo_max_width": "200",
-          "nav_menu": "main-menu",
+          "nav_menu": "ic-main",
           "nav_below_logo": false,
           "left_aligned_logo": false,
           "show_header_lines": false,
           "show_announcement": false,
-          "header_text": "Announce something here"
+          "header_text": ""
         }
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "ff0c1829-e75e-41f5-b17d-fdf1b42e7bc8": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "",
+              "menu": "footer"
+            }
+          },
+          "f796c86e-91d8-472c-b329-58f5d032a35f": {
+            "type": "text",
+            "settings": {
+              "title": "Contact us",
+              "richtext": "<p><strong>Email: <\/strong>contact@imperfectandcompany.com<\/p><p><strong>Address: <\/strong>6633 18 Mile Road Suite 4E, Sterling Heights MI 48314, United States<\/p><p><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "ff0c1829-e75e-41f5-b17d-fdf1b42e7bc8",
+          "f796c86e-91d8-472c-b329-58f5d032a35f"
+        ],
         "settings": {
-          "show_methods_of_payment": false
+          "show_methods_of_payment": true
         }
       },
       "slider": {
@@ -114,10 +134,10 @@
       "featured-collection": {
         "type": "featured-collection",
         "settings": {
-          "title": "",
+          "title": "Season I",
           "featured_collection": "imperfect-and-company",
-          "num_per_row": 4,
-          "num_rows": 2,
+          "num_per_row": 5,
+          "num_rows": 1,
           "vendor_enable": false,
           "show_sale_circle": true,
           "show_sold_out_circle": true,
@@ -134,7 +154,7 @@
           "product_vendor_enable": false,
           "product_quantity_enable": true,
           "product_image_zoom_type": "zoom-in",
-          "product_thumbnails_position": "right",
+          "product_thumbnails_position": "below",
           "show_extra_tab": false,
           "social_sharing": false,
           "enable_payment_button": true,
@@ -144,12 +164,12 @@
       "collection-template": {
         "type": "collection-template",
         "settings": {
-          "vendor_enable": false,
-          "show_sale_circle": false,
-          "show_sold_out_circle": false,
-          "sort_enable": false,
-          "tags_enable": false,
-          "center_grid_link": true
+          "vendor_enable": true,
+          "show_sale_circle": true,
+          "show_sold_out_circle": true,
+          "sort_enable": true,
+          "tags_enable": true,
+          "center_grid_link": false
         }
       },
       "article-template": {
@@ -185,20 +205,39 @@
           "show_view_all": false
         }
       },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "Based on your history",
+          "vendor_enable": false,
+          "show_sale_circle": true,
+          "center_grid_link": true
+        }
+      },
+      "16018599427de1d5e8": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Accessories",
+          "featured_collection": "accessories",
+          "num_per_row": 4,
+          "num_rows": 1,
+          "vendor_enable": false,
+          "show_sale_circle": true,
+          "show_sold_out_circle": true,
+          "center_grid_link": true
+        }
+      },
       "cart-template": {
         "type": "cart-template",
         "settings": {
           "cart_notes_enable": false
         }
       },
-      "product-recommendations": {
-        "type": "product-recommendations",
+      "16021052529d797134": {
+        "type": "custom-html",
         "settings": {
-          "show_product_recommendations": true,
-          "heading": "You may also like",
-          "vendor_enable": false,
-          "show_sale_circle": false,
-          "center_grid_link": false
+          "custom_html": "<style>\n.container {\npadding: 20px;\nbackground-image: linear-gradient(to left top, #7f7aa6, #817faf, #8285b8, #828ac1, #8290ca);\nborder: 10px solid;\n}\n\n.one-third {\nborder: 5px solid #000;\npadding:  50px 20px;\n}\n\n.one-third a {\nborder-bottom: 2px solid #000;\n}\n\n.first {\nbackground: pink;\n}\n\n\n.second {\nbackground: lavender;\n}\n\n.third {\nbackground: lightyellow;\n}\n\np.link {\nfont-size:2vw;\n}\n\n\n\/* If the screen size is 601px wide or more, set the font-size of p class=\"logo\" to 80px *\/\n@media screen and (min-width: 601px) {\n  p.link{\n    font-size: 30px;\n  }\n}\n\n\/* If the screen size is 600px wide or less, set the font-size of p class=\"logo\" to 30px *\/\n@media screen and (max-width: 600px) {\n  p.link{\n    font-size: 3vw;\n  }\n}\n\n<\/style>\n<div class=\"container\">\n\n <div class=\"one-third column text-center first\">\n <p class=\"link\"><a href=\"\/pages\/faqs\">Imperfect Sounds<\/a><\/p>\n <\/div>\n\n <div class=\"one-third column text-center second\">\n <p class=\"link\"><a href=\"\/pages\/faqs\">Imperfect Gamers<\/a><\/p>\n <\/div>\n \n <div class=\"one-third column text-center third\">\n <p class=\"link\"><a href=\"\/pages\/faqs\">Work with us<\/a><\/p>\n <\/div>\n \n \n \n <\/div>"
         }
       }
     },
@@ -206,7 +245,9 @@
       "slider",
       "featured-blog",
       "featured-collection",
-      "featured-product"
+      "featured-product",
+      "16018599427de1d5e8",
+      "16021052529d797134"
     ]
   },
   "presets": {

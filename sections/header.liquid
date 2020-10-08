@@ -110,7 +110,7 @@
           </div>
 
           <div class="header-bar__module">
-            <a href="{{ routes.cart_url }}" class="cart-page-link">
+            <a href="{{ routes.cart_url }}" class="cart-page-link" data-hover="{{ 'layout.cart.title' | t }}">
               {{ 'layout.cart.title' | t }}{% unless cart.item_count == 0 %}:{% endunless %}
               <span class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>
             </a>
@@ -147,7 +147,7 @@
           {{ 'layout.navigation.menu' | t }}
         </button>
       {% endunless %}
-      <a href="{{ routes.cart_url }}" class="cart-page-link mobile-cart-page-link">
+      <a href="{{ routes.cart_url }}" class="cart-page-link mobile-cart-page-link" >
         <span class="icon icon-cart header-bar__cart-icon" aria-hidden="true"></span>
         {{ 'layout.cart.title' | t }} <span class="cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>
       </a>

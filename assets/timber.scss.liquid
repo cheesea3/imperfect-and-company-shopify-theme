@@ -1819,7 +1819,7 @@ $socialIconFontStack: "icons";
   @include at-query($min, $medium) {
     input {
       max-width: 250px;
-    }
+    }   
   }
 
   .text-center input {
@@ -2292,19 +2292,31 @@ $socialIconFontStack: "icons";
 }
 
 .site-nav__link {
-  display: block;
-  text-decoration: none;
-  white-space: nowrap;
-  color: $colorNavText;
-  background-color: $colorBody;
-  font-weight: $accentFontWeight;
-  padding: 7px 20px 7px 15px;
+	color: rgba(0,0,0,0.2);
+	font-weight: 700;
+	text-shadow: none;
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: $colorPrimary;
+  &:before {
+	color: #000;
+	content: attr(data-hover);
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
   }
+    
+  
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+    
+  }
+  
+  
 
   .site-nav--active > & {
     font-weight: $accentFontWeightBold;
