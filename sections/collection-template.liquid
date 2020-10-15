@@ -1,12 +1,12 @@
 {% paginate collection.products by 20 %}
 
 <div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="{{ section.settings.sort_enable }}" data-tags-enabled="{{ section.settings.tags_enable }}">
-  <div class="section-header section-header--breadcrumb">
+  <div class="section-header section-header--breadcrumb ">
     {% include 'breadcrumb' %}
   </div>
 
   <header class="section-header section-header--large">
-    <h1 class="section-header__title{% if section.settings.tags_enable or section.settings.sort_enable %} section-header__title--left{% endif %}">{{ collection.title }}</h1>
+    <h1 class="section-header__title{% if section.settings.tags_enable or section.settings.sort_enable %} section-header__title--left{% endif %}">Loot</h1>
     {% if section.settings.tags_enable or section.settings.sort_enable %}
     <div class="section-header__link--right">
       {% if section.settings.tags_enable %}

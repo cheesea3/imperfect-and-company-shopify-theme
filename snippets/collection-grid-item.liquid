@@ -6,7 +6,7 @@
 {% endif %}
 
 <a href="{{ collections[featured].url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="grid-link{% if settings.collections_center_grid_link %} text-center{% endif %}">
-  <span class="grid-link__image grid-link__image--collection">
+  <span class="grid-link__image grid-link__image--collection " >
     <span class="grid-link__image-centered">
       {% if collections[featured] == empty %}
         {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}

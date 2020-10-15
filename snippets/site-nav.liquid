@@ -5,11 +5,10 @@
     - http://docs.shopify.com/themes/liquid-variables/linklists
 {% endcomment %}
 <nav>
-  <ul class="site-nav" id="AccessibleNav">
+  <ul class="site-nav noselect animate__animated animate__slideInDown" id="AccessibleNav">
     {% for link in site-nav.links %}
       {% if link.links != blank %}
-      {% assign parent_index = forloop.index %}
-        <li
+      {% assign parent_index = forloop.index %}<li
           class="site-nav--has-dropdown {% if link.active %}site-nav--active{% endif %}"
           aria-haspopup="true">
           <a
@@ -17,7 +16,7 @@
             class="site-nav__link"
               data-hover="{{ link.title | escape }}"
             data-meganav-type="parent"
-           
+
             aria-controls="MenuParent-{{ parent_index }}"
             aria-expanded="false"
             {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
@@ -30,8 +29,7 @@
             data-meganav-dropdown>
             {% for childlink in link.links %}
               {% if childlink.links != blank %}
-              {% assign child_index = forloop.index %}
-                <li
+              {% assign child_index = forloop.index %}<li
                   class="site-nav--has-dropdown site-nav--has-dropdown-grandchild {% if childlink.active %}site-nav--active{% endif %}"
                   aria-haspopup="true">
                   <a
@@ -49,8 +47,7 @@
                     id="MenuChildren-{{ parent_index }}-{{ child_index }}"
                     class="site-nav__dropdown-grandchild"
                     data-meganav-dropdown>
-                    {% for grandchildlink in childlink.links %}
-                      <li{% if grandchildlink.active %} class="site-nav--active"{% endif %}>
+                    {% for grandchildlink in childlink.links %}<li{% if grandchildlink.active %} class="site-nav--active"{% endif %}>
                         <a
                           href="{{ grandchildlink.url }}"
                           class="site-nav__link"
@@ -60,10 +57,8 @@
                           tabindex="-1">
                             {{ grandchildlink.title | escape }}
                           </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </li>
+                      </li>{% endfor %}
+                  </ul></li>
               {% else %}
                 <li{% if childlink.active %} class="site-nav--active"{% endif %}>
                   <a
@@ -74,24 +69,17 @@
                     {% if childlink.active %}aria-current="page"{% endif %}
                     tabindex="-1">
                       {{ childlink.title | escape }}
-                  </a>
-                </li>
+                  </a></li>
               {% endif %}
             {% endfor %}
-          </ul>
-        </li>
+          </ul></li>
       {% else %}
-        <li{% if link.active %} class="site-nav--active"{% endif %}>
-          <a
-            href="{{ link.url }}"
+        <li{% if link.active %} class="site-nav--active"{% endif %}><a href="{{ link.url }}"
             class="site-nav__link"
              data-hover="{{ link.title | escape }}"
             data-meganav-type="child"
             {% unless request.page_type == 'index' %}{% if link.active %}aria-current="page"{% endif %}{% endunless%}>
-              {{ link.title | escape }}
-          </a>
-        </li>
+              {{ link.title | escape }}</a></li>
       {% endif %}
-    {% endfor %}
-  </ul>
+    {% endfor %}</ul>
 </nav>

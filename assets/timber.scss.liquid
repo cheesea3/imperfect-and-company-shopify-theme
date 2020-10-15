@@ -1819,7 +1819,7 @@ $socialIconFontStack: "icons";
   @include at-query($min, $medium) {
     input {
       max-width: 250px;
-    }   
+    }
   }
 
   .text-center input {
@@ -2295,6 +2295,13 @@ $socialIconFontStack: "icons";
 	color: rgba(0,0,0,0.2);
 	font-weight: 700;
 	text-shadow: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 
   &:before {
 	color: #000;
@@ -2304,8 +2311,8 @@ $socialIconFontStack: "icons";
 	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
 	transition: transform 0.3s, opacity 0.3s;
   }
-    
-  
+
+
   &:hover::before,
   &:active::before,
   &:focus::before {
@@ -2313,10 +2320,10 @@ $socialIconFontStack: "icons";
 	-moz-transform: scale(0.9);
 	transform: scale(0.9);
 	opacity: 0;
-    
+
   }
-  
-  
+
+
 
   .site-nav--active > & {
     font-weight: $accentFontWeightBold;
