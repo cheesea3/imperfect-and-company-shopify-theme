@@ -1,10 +1,7 @@
 <!doctype html>
 <html class="no-js">
 <head>
-    <link
-            rel="stylesheet"
-            href="https://cdn.shopify.com/s/files/1/0493/3900/7141/files/animate.css?v=1602732734 "
-    />
+
 
   <!-- Basic page needs ================================================== -->
   <meta charset="utf-8">
@@ -34,6 +31,12 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+
+  <!-- Page Transitions ================================================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css" integrity="sha512-SagM1PHxt5mWDyWARVY6UOdhM5A8J+R1UqIWcGfiwOd+be7uHQagB+JQOmfVZF8jjJQqbyuWzw/KXfb4yqjBkQ==" crossorigin="anonymous" />  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.css" integrity="sha512-QOEtUtkXE66sy/LeOXlkdQn8ke3DDTTyJ/L17lGdUhnhEsA3dAWfl+EBCoEFyJcFHP9Cs0hgTCtntO4Ty8Knlg==" crossorigin="anonymous" />
+  <!-- Page Animations ================================================== -->
+  <link rel="stylesheet" href="https://cdn.shopify.com/s/files/1/0493/3900/7141/files/animate.css?v=1602732734"/>
 
   <script>
     window.theme = window.theme || {};
@@ -87,7 +90,7 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
-
+<div class="animsition">
   {% section 'header' %}
 
   <main class="wrapper main-content" role="main">
@@ -117,5 +120,21 @@
   </ul>
 
   {{ 'theme.js' | asset_url | script_tag }}
+</div>
+<!-- Page Transitions ================================================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js" integrity="sha512-pYd2QwnzV9JgtoARJf1Ui1q5+p1WHpeAz/M0sUJNprhDviO4zRo12GLlk4/sKBRUCtMHEmjgqo5zcrn8pkdhmQ==" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+    $('.animsition').animsition();
+  });
+</script>
 </body>
+<script src="https://cdn.imperfectgamers.org/inc/assets/npm/widget/crate.js" async defer>
+  const button = new Crate({
+    server: '193909594270072832',
+    channel: '366373736766636042',
+    shard: 'https://e.widgetbot.io',
+    color: '#ff3535'
+  })
+</script>
 </html>

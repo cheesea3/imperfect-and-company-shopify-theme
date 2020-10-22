@@ -1,4 +1,5 @@
 {% unless current_collection == blank %}
+
   {% assign current_collection = collection %}
 {% endunless %}
 
@@ -21,8 +22,41 @@
   {% capture product_title %}{{ featured.title | escape }}{% endcapture %}
 {% endif %}
 
+
+
 <div class="animate__animated animate__fadeIn wow {% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+
   <a href="{{ featured.url | within: collection }}" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+      <div class="product-header" style="text-align: left;">
+          <p class="grid-link__title">{{ product_title }}</p>
+          {% if section.settings.vendor_enable %}
+              <p class="grid-link__title grid-link__vendor">{{ featured.vendor }}</p>
+          {% endif %}
+          {% if featured.title != '' %}
+          <p class="grid-link__meta">
+              {%- assign price = featured.price | money -%}
+
+              {% if on_sale %}
+                  <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                  <s class="grid-link__sale_price">{{ featured.compare_at_price | money }}</s>
+              {% endif %}
+              {% if featured.price_varies %}
+          <div style="color: #ff3535; font-size: 22px; font-weight:600">{{ price }}</div>
+      {% else %}
+          {% if on_sale %}
+              <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+          {% else %}
+              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          {% endif %}
+          <div style="color: #ff3535; font-size: 22px; font-weight:600; margin-top: auto; box-sizing: border-box;" >{{ price }}</div>
+
+          {%- assign variant = featured.selected_or_first_available_variant -%}
+          {%- if variant.available and variant.unit_price_measurement -%}
+              {% include 'product-unit-price', variant: variant, wrapper_class: 'grid-link__unit-price' %}
+          {%- endif -%}
+          {% endif %}
+          </p>
+      </div>
     <span class="grid-link__image grid-link__image--loading{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product" data-image-wrapper>
       {% if on_sale and section.settings.show_sale_circle %}
         <span class="badge badge--sale">
@@ -44,10 +78,11 @@
             {% include 'image-style' with image: featured.featured_image, width: product_width, height: 480, wrapper_id: wrapper_id, img_id: img_id %}
             <div id="{{ wrapper_id }}" class="product__img-wrapper supports-js">
               <div style="padding-top:{{ 1 | divided_by: featured.featured_image.aspect_ratio | times: 100}}%;">
-                <img id="{{ img_id }}"
+                <img style="border-radius:20px;" id="{{ img_id }}"
                      alt="{{ featured.featured_image.alt | escape }}"
                      class="product__img lazyload"
                      data-src="{{ img_url }}"
+
                      data-widths="[150, 220, 360, 470, 600, 750, 940, 1080, 1296, 1512, 1728, 2048]"
                      data-aspectratio="{{ featured.featured_image.aspect_ratio }}"
                      data-sizes="auto"
@@ -55,10 +90,10 @@
               </div>
             </div>
           {% else %}
-            <img src="{{ featured.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}" class="product__img" data-image>
+            <img src="{{ featured.featured_image.src | img_url: 'large' }}" style="border-radius:15px;" alt="{{ featured.featured_image.alt | escape }}" class="product__img" data-image>
           {% endunless %}
           <noscript>
-            <img src="{{ featured.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}" class="product__img">
+            <img src="{{ featured.featured_image.src | img_url: 'large' }}" style="border-radius:15px;" alt="{{ featured.featured_image.alt | escape }}" class="product__img">
           </noscript>
         {% else %}
           {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
@@ -66,34 +101,8 @@
         {% endif %}
       </span>
     </span>
-    <p class="grid-link__title">{{ product_title }}</p>
-    {% if section.settings.vendor_enable %}
-      <p class="grid-link__title grid-link__vendor">{{ featured.vendor }}</p>
-    {% endif %}
-    {% if featured.title != '' %}
-      <p class="grid-link__meta">
-        {%- assign price = featured.price | money -%}
 
-        {% if on_sale %}
-        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-        <s class="grid-link__sale_price">{{ featured.compare_at_price | money }}</s>
-        {% endif %}
-        {% if featured.price_varies %}
-          {{ 'products.general.from_html' | t: price: price }}
-        {% else %}
-          {% if on_sale %}
-            <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
-          {% else %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-          {% endif %}
-          {{ price }}
 
-          {%- assign variant = featured.selected_or_first_available_variant -%}
-          {%- if variant.available and variant.unit_price_measurement -%}
-            {% include 'product-unit-price', variant: variant, wrapper_class: 'grid-link__unit-price' %}
-          {%- endif -%}
-        {% endif %}
-      </p>
     {% endif %}
   </a>
 </div>
